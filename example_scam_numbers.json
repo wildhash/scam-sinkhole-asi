@@ -1,0 +1,55 @@
+{
+  "scam_numbers": [
+    {
+      "number": "+15551234567",
+      "type": "IRS Scam",
+      "notes": "Claims you owe back taxes"
+    },
+    {
+      "number": "+15559876543",
+      "type": "Tech Support Scam",
+      "notes": "Microsoft/Windows support scam"
+    },
+    {
+      "number": "+15555551212",
+      "type": "Social Security Scam",
+      "notes": "Claims SSN suspended"
+    },
+    {
+      "number": "+15554443333",
+      "type": "Grandparent Scam",
+      "notes": "Pretends to be grandchild in trouble"
+    },
+    {
+      "number": "+15556667777",
+      "type": "Lottery/Prize Scam",
+      "notes": "Claims you won a prize"
+    },
+    {
+      "number": "+15552223344",
+      "type": "Romance Scam",
+      "notes": "Online dating scam"
+    },
+    {
+      "number": "+15558889999",
+      "type": "Credit Card Scam",
+      "notes": "Fake card services"
+    },
+    {
+      "number": "+15551112233",
+      "type": "Investment Scam",
+      "notes": "Crypto investment fraud"
+    },
+    {
+      "number": "+15557778888",
+      "type": "Utility Scam",
+      "notes": "Threatens to shut off power"
+    },
+    {
+      "number": "+15554445566",
+      "type": "Charity Scam",
+      "notes": "Fake charity donation"
+    }
+  ],
+  "note": "These are EXAMPLE numbers for demonstration purposes only. Replace with actual confirmed scam numbers before deployment."
+}
