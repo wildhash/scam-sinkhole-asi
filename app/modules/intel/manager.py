@@ -97,7 +97,8 @@ class IntelManager:
     
     def _extract_urls(self, text: str) -> List[str]:
         """Extract URLs using regex."""
-        url_pattern = r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
+        # More explicit URL pattern to avoid suspicious character ranges
+        url_pattern = r'http[s]?://(?:[a-zA-Z]|[0-9]|[\$\-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
         urls = re.findall(url_pattern, text)
         return urls
     
