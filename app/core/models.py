@@ -24,6 +24,7 @@ class CallSessionModel(BaseModel):
     duration_seconds: Optional[int] = None
     status: str  # "active", "completed", "failed"
     transcript: List[Dict[str, str]] = []
+    call_id: Optional[str] = None  # Telnyx call control ID
 
 
 class IntelligenceModel(BaseModel):

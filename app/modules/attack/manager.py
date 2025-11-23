@@ -36,6 +36,8 @@ class AttackManager:
                 webhook_event_url=f"{self.settings.report_webhook_url}/call-events",
             )
             
+            # Store the call ID for tracking
+            session.call_id = call.call_control_id
             self.active_sessions[session.id] = session
             return session
             

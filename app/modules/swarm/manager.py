@@ -75,9 +75,11 @@ Format as JSON with keys: name, backstory, personality_traits, speech_patterns""
             
         except Exception as e:
             # Fallback to simple persona if API fails
+            import threading
+            persona_number = len(self.personas) + 1
             persona = PersonaModel(
                 id=str(uuid.uuid4()),
-                name=f"Agent {len(self.personas) + 1}",
+                name=f"Agent {persona_number}",
                 archetype=archetype,
                 backstory=f"A {archetype.replace('_', ' ')} who is easily confused.",
                 personality_traits=["confused", "talkative", "trusting", "slow", "forgetful"],

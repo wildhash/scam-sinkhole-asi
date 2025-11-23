@@ -70,10 +70,21 @@ class IntelManager:
     
     def _extract_bank_accounts(self, text: str) -> List[str]:
         """Extract bank account numbers using regex."""
-        # Look for sequences of numbers that might be account numbers
-        # This is a simplified pattern
-        account_pattern = r'\b\d{8,17}\b'
-        accounts = re.findall(account_pattern, text)
+        # Look for sequences of 8-17 digits that might be account numbers
+        # More restrictive pattern to avoid false positives
+        accounts = []
+        
+        # Look for explicit mentions of account numbers
+        account_contexts = [
+            r'account\s+(?:number\s+)?#?(\d{8,17})',
+            r'routing\s+(?:number\s+)?#?(\d{9})',
+            r'bank\s+account\s+(\d{8,17})'
+        ]
+        
+        for pattern in account_contexts:
+            matches = re.findall(pattern, text, re.IGNORECASE)
+            accounts.extend(matches)
+        
         return accounts
     
     def _extract_phone_numbers(self, text: str) -> List[str]:

@@ -50,7 +50,7 @@ app = FastAPI(
 # Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Configure appropriately for production
+    allow_origins=["*"],  # TODO: Configure with specific origins for production
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -80,8 +80,13 @@ class ConnectionManager:
         for connection in self.active_connections:
             try:
                 await connection.send_json(message)
-            except:
-                pass
+            except Exception as e:
+                # Log error and remove dead connection
+                print(f"WebSocket broadcast error: {e}")
+                try:
+                    self.active_connections.remove(connection)
+                except ValueError:
+                    pass
 
 
 manager = ConnectionManager()
