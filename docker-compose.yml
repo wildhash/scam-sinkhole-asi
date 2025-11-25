@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  scamsinkhole:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - AGI_API_KEY=${AGI_API_KEY}
+      - AGI_API_BASE_URL=${AGI_API_BASE_URL:-https://api.openai.com/v1}
+      - TELNYX_API_KEY=${TELNYX_API_KEY}
+      - TELNYX_PHONE_NUMBER=${TELNYX_PHONE_NUMBER}
+      - APP_HOST=0.0.0.0
+      - APP_PORT=8000
+      - DEBUG=${DEBUG:-false}
+      - REPORT_WEBHOOK_URL=${REPORT_WEBHOOK_URL}
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
+
+networks:
+  default:
+    name: scamsinkhole-network
